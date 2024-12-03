@@ -153,20 +153,17 @@ const fizzBuzz = function(n) {
 // Step 5) 2 is even; divide by 2 and obtain 1. 
 // Step 6) 1 is odd; subtract 1 and obtain 0.
 
-const num = 14
-
 const numberOfSteps = (num) => {
+
   while (num > 0) {
-    if (num === 0) {
-      return num
-    } else if (num % 2 === 0) {
-      num / 2
+    if (num % 2 === 0) {
+      num /= 2
     } else {
-      num - 1
+      num -= 1
     }
-    return num
   } 
+  return num
 }
 
-console.log(numberOfSteps())
+console.log(numberOfSteps(21))
 
