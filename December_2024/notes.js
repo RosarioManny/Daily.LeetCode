@@ -142,7 +142,7 @@ const fizzBuzz = function(n) {
 
 // console.log(fizzBuzz(100))
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 4. LEETCODE #1342. Number of Steps to Reduce a Number to Zero ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// Given an integer num, return the number of steps to reduce it to zero.
+// Given an integer num, return the number of STEPS to reduce it to zero. 
 // In one step, if the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.
 
 // CONCEPTUALIZE 
@@ -155,15 +155,22 @@ const fizzBuzz = function(n) {
 
 const numberOfSteps = (num) => {
 
+  let steps = -1 
   while (num > 0) {
     if (num % 2 === 0) {
       num /= 2
+      steps++
+      // console.log(num)
     } else {
       num -= 1
+      steps++
+      // console.log(num)
     }
   } 
-  return num
+  return(steps)
+
+  // console.log (`It took ${steps} step(s)`, num)
 }
 
-console.log(numberOfSteps(21))
+console.log(numberOfSteps(3121))
 
