@@ -73,19 +73,17 @@ const maximumWealth = function(accounts) {
 // answer[i] == "Buzz" if i is divisible by 5.
 // answer[i] == i (as a string) if none of the above conditions are true.
 
-//  !@#$%^&*()_+-=[]{}|;:'",.<>?/~` ---- SOME FUN ----!@#$%^&*()_+-=[]{}|;:'",.<>?/~`!@#$%^&*()_+-=[]{}|;:'",.<>?/~`//  !@#$%^&*()_+-=[]{}|;:'",.<>?/~`!@#$%^&*()_+-=[]{}|;:'",.<>?/~`!@#$%^&*()_+-=[]{}|;:'",.<>?/~`
-
-// let arraySize =  Math.ceil(Math.random() * 15) // < Getting a Random number 1-20
-// const answer = new Array(arraySize) // < Setting answer array to an array of random sizd
-// const filledAnswer = function(){  // < filling array with random numbers
-//   for(let i = 0; i < answer.length; i++){
-//     let randomNumber = Math.ceil(Math.random() * 100)
-//     answer[i] = randomNumber
-//   }
-// }
-// filledAnswer() // < Create that new Randomzied answer array
-
-// !@#$%^&*()_+-=[]{}|;:'",.<>?/~`!@#$%^&*()_+-=[]{}|;:'",.<>?/~`!@#$%^&*()_+-=[]{}|;:'",.<>?/~`!@#$%^&*()_+-=[]{}|;:'",.<>?/~`//  !@#$%^&*()_+-=[]{}|;:'",.<>?/~`!@#$%^&*()_+-=[]{}|;:'",.<>?/~`!@#$%^&*()_+-=[]{}|;:'",.<>?/~`
+//  !@#$%^&*()_+-=[]{}|;:'",.<>?/~` ---- SOME FUN ----!@#$%^&*()_+-=[]{}|;:'",.<>?/~`!@#$%^&*()_+-=[]{}|;:'",.<>?/~`//  !@#$%^&*()_+-=[]{
+//                                                                                                                                      |
+// let arraySize =  Math.ceil(Math.random() * 15) // < Getting a Random number 1-20                                                     |
+// const answer = new Array(arraySize) // < Setting answer array to an array of random sizd                                             |
+// const filledAnswer = function(){  // < filling array with random numbers                                                             |
+//   for(let i = 0; i < answer.length; i++){                                                                                            |
+//     let randomNumber = Math.ceil(Math.random() * 100)                                                                                |                           
+//   }                                                                                                                                  |
+// }                                                                                                                                    |
+// filledAnswer() // < Create that new Randomzied answer array                                                                          |
+// !@#$%^&*()_+-=[]{}|;:'",.<>?/~`!@#$%^&*()_+-=[]{}|;:'",.<>?/~`!@#$%^&*()_+-=[]{}|;:'",.<>?/~`!@#$%^&*()_+-=[]{}|;:'",.<>?/~`//  !@#$%|
 
 const fizzBuzz = function(n) {
   let answer = [] // < create an array 
@@ -123,7 +121,6 @@ const fizzBuzz = function(n) {
 //   console.log(answer)
 // }
 
-console.log(fizzBuzz(100))
 
 // vvvv WHY START AT INDEX 1 vvvv
 // 1. FizzBuzz Problem Description:
@@ -142,3 +139,12 @@ console.log(fizzBuzz(100))
 // 2: Is not divisible by 3 or 5, so the output is "2".
 // 3: Is divisible by 3, so the output is "Fizz", and so on...
 // Starting the loop at 1 allows you to correctly handle the numbers as required by the problem.
+
+// console.log(fizzBuzz(100))
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 4. LEETCODE #1342. Number of Steps to Reduce a Number to Zero ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// Given an integer num, return the number of steps to reduce it to zero.
+// In one step, if the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.
+const numberOfSteps = () => {
+  
+}
+
