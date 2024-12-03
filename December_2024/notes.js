@@ -168,7 +168,6 @@ const numberOfSteps = (num) => {
     }
   } 
   return(steps)
-
   // console.log (`It took ${steps} step(s)`, num)
 }
 
