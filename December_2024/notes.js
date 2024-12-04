@@ -176,7 +176,7 @@ console.log(numberOfSteps(3121))
 // Given the head of a singly linked list, return the middle node of the linked list.
 // If there are two middle nodes, return the second middle node.
 
-class ListNode {
+class ListNode { // < Creates the instance of a Linked List
   constructor(val, next = null) {
     this.val = val;
     this.next = next;
@@ -184,14 +184,20 @@ class ListNode {
 }
 
 const middleNode = (head) => {
-  let middle = head;
-  let end = head;
+  let middle = head; // < Creates a middle pointer. ALWAYS Starts at the head
+  let end = head; // < Same with the head ^^
 
-  while (end !== null && end.next !== null) {
-    middle = middle.next;
-    end = end.next.next;
+  while (end !== null && end.next !== null) { // < The while loop continues as long as end is not null and end.next is also not null. This ensures that end can safely move forward by two steps.
+    middle = middle.next; // < middle moves one step (middle = middle.next).
+    end = end.next.next; // < end moves two steps (end = end.next.next).
   }
 
   return middle;
 };
-
+// NOTES:
+// We have two pointers, middle and end, both initialized to the head of the linked list.
+// The while loop continues as long as end is not null and end.next is also not null. This ensures that end can safely move forward by two steps.
+// When end reaches the end of the list or when end.next is null (i.e., the list has an odd number of nodes and end is at the last node), the loop stops.
+// At this point, middle will be at the middle of the list.
+// TIME COMPLEXITY = O(n) 
+// SPACE COMPLEXITY = O(1) 
