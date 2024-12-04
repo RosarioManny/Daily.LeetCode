@@ -171,7 +171,7 @@ const numberOfSteps = (num) => {
   // console.log (`It took ${steps} step(s)`, num)
 }
 
-console.log(numberOfSteps(3121))
+// console.log(numberOfSteps(3121))
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 5. LEETCODE #876. Middle of the Linked List ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // Given the head of a singly linked list, return the middle node of the linked list.
 // If there are two middle nodes, return the second middle node.
@@ -204,15 +204,32 @@ const middleNode = (head) => {
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 6. LEETCODE #383. Ransom Note ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine and false otherwise.
 // Each letter in magazine can only be used once in ransomNote.
+// Example 1:
+  // Input: ransomNote = "aa", magazine = "ab"
+  // Output: false
 // Example 2:
+  // Input: ransomNote = "aa", magazine = "aab"
+  // Output: true
 
-// Input: ransomNote = "aa", magazine = "ab"
-// Output: false
-// Example 3:
+let ransomNote = "code"
+const magazine = "cdegijok"
 
-// Input: ransomNote = "aa", magazine = "aab"
-// Output: true
+const test = () => {
+  let map = new Map()
 
-const canConstruct = (ransomNote, magazine) => {
-    
-};
+  for (let char of magazine) { // < for...of loop; 'char' will be each character in magazine during each loop
+    map.set(char, (map.get(char) || 0) + 1);
+  }
+  
+  for (let char of ransomNote) {
+    if (!map.has(char) || map.get(char) === 0) {
+      return false;  // Character not found or used up
+    }
+    map.set(char, map.get(char) - 1);  // Use up one occurrence of the character
+  }
+
+  console.log("pizza", map)
+  return true;  
+}
+
+test()
