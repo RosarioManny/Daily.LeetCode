@@ -176,4 +176,22 @@ console.log(numberOfSteps(3121))
 // Given the head of a singly linked list, return the middle node of the linked list.
 // If there are two middle nodes, return the second middle node.
 
- 
+class ListNode {
+  constructor(val, next = null) {
+    this.val = val;
+    this.next = next;
+  }
+}
+
+const middleNode = (head) => {
+  let middle = head;
+  let end = head;
+
+  while (end !== null && end.next !== null) {
+    middle = middle.next;
+    end = end.next.next;
+  }
+
+  return middle;
+};
+
