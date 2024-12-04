@@ -211,25 +211,23 @@ const middleNode = (head) => {
   // Input: ransomNote = "aa", magazine = "aab"
   // Output: true
 
-let ransomNote = "code"
-const magazine = "cdegijok"
+let rN = "code"
+const mG = "cdegijok"
 
 const test = () => {
-  let map = new Map()
-
-  for (let char of magazine) { // < for...of loop; 'char' will be each character in magazine during each loop
-    map.set(char, (map.get(char) || 0) + 1);
-  }
-  
-  for (let char of ransomNote) {
-    if (!map.has(char) || map.get(char) === 0) {
-      return false;  // Character not found or used up
+  const temp = []
+  for (let i = 0; i < rN.length; i++) {
+    let t = `${rN[i]}`
+    console.log(t)
+    for (let j = 0; j < mG.length; j++) {
+      if (t === mG[j])
+        temp.push(mG[j])
     }
-    map.set(char, map.get(char) - 1);  // Use up one occurrence of the character
   }
-
-  console.log("pizza", map)
-  return true;  
+  console.log(temp)
 }
+
+// We want to loop through every letter within rN assig
+// 
 
 test()
