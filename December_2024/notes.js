@@ -214,7 +214,7 @@ const middleNode = (head) => {
 let ransomNote = "code"
 let magazine = "cdegijok"
 
-const test = () => {
+const lettersWithin = () => {
   for (let i = 0; i < ransomNote.length; i++) { // < iterate over all letters in ransomNote
     let rN = ransomNote.charAt(i); // < set rN to the character we are currently iterating on
     
@@ -240,7 +240,7 @@ const test = () => {
 // If the letter doesn't exist than there will be no number and matchingIndex will default to -1.
   // Ex: If it was looking for 'x', the indexOf method will default to -1 because there is no 'x'
 // If in the case that there is no letter, within magazine and matchingIndex = -1, it will then hit the if statement that will stop the loop and return false. 
-// We then set magazine to a new string where substring takes the range of (0, matchingIndex value) and adds the 
+// We then set magazine to a new string where substring takes the range of (0, matchingIndex value) and adds the (matchingIndex value + 1). 
+  // substring is inclusive + exclusive, meaning it returns the first number's value and ends at the second number given but doesn't return the value corresponding with the second number. 
 
-// c
-test()
+lettersWithin()
