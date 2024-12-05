@@ -211,23 +211,36 @@ const middleNode = (head) => {
   // Input: ransomNote = "aa", magazine = "aab"
   // Output: true
 
-let rN = "code"
-const mG = "cdegijok"
+let ransomNote = "code"
+let magazine = "cdegijok"
 
 const test = () => {
-  const temp = []
-  for (let i = 0; i < rN.length; i++) {
-    let t = `${rN[i]}`
-    console.log(t)
-    for (let j = 0; j < mG.length; j++) {
-      if (t === mG[j])
-        temp.push(mG[j])
+  for (let i = 0; i < ransomNote.length; i++) { // < iterate over all letters in ransomNote
+    let rN = ransomNote.charAt(i); // < set rN to the character we are currently iterating on
+    
+    let matchingIndex = magazine.indexOf(rN) // < indexOf looks at the index of the given character. This case whatever letter rN is. 
+    if (matchingIndex === -1) {
+      return false 
     }
+    console.log(magazine)
+    magazine = magazine.substring(0, matchingIndex) + magazine.substring(matchingIndex + 1);
   }
-  console.log(temp)
+  return true
 }
 
-// We want to loop through every letter within rN assig
-// 
+// NOTES: 
+// I initially thought that I hade to save the letters to an Array or variable. Then compare that variable to our ransomNote. 
 
+// Rather, in this code we are looping and looking each letter in ransomNote. (for loop i)
+// We then assign that letter that we are currently on to a variable, (rN).
+// We are then getting it's index and setting to a variable , (mathcingIndex)
+// matchingIndex is then using the indexOf method, which is looking at magazine.
+// It is then searching for the letter that (rN) is currently and setting matchingIndex's value to the index of the found letter in magazine. 
+  // Ex: When rN is 'c' it will look in magazine for where 'c' is. 'c' in magaine has an idx of 0, so thus matchingIndex = 0;
+// If the letter doesn't exist than there will be no number and matchingIndex will default to -1.
+  // Ex: If it was looking for 'x', the indexOf method will default to -1 because there is no 'x'
+// If in the case that there is no letter, within magazine and matchingIndex = -1, it will then hit the if statement that will stop the loop and return false. 
+// We then set magazine to a new string where substring takes the range of (0, matchingIndex value) and adds the 
+
+// c
 test()
