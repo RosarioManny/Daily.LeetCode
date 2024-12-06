@@ -250,19 +250,28 @@ lettersWithin()
 // Output: 3
 // Explanation: The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3.
 
-const onesAndZeros = [1,1,0,1,1,1];
+const nums = [1,1,0,1,1,1];
+// const nums = [1,0,1,1,0,1];
 
 const findMaxConsecutiveOnes = (num) => {
-  let consecutiveOnes = [] // < Storing the 1s
+  let onesArray = [] // < Storing the 1s
+  let consecutivesOnes = [] // < Stores the streak of 1s before it breaks. 
 
-  for(let i = 0; i < nums.length; i++) { // < Loop though the array
-    if (nums[i] === 1){ // < checks if it's a 1.
-      consecutiveOnes.push(nums[i]);  // < if 1, push into the storing array
-    } else if(nums[i] === 0) { // < checks if its not 1 or that its 0
-      consecutiveOnes = [] // < if it's 0, reset the storing array
+  for(let i = 0; i < nums.length; i++) {              // < Loop though the array
+    if (nums[i] === 1){                               // < checks if it's a 1.
+      onesArray.push(nums[i]);                        // < if 1, push into the storing array
+      consecutivesOnes.push(onesArray.length)         // < storing the 1s before resetting the consecutive ones 
+    } else if(nums[i] === 0) {                        // < checks if its not 1 or that its 0
+      onesArray = []                                  // < if it's 0, reset the storing array
     }
   }
-  return consecutiveOnes.length
+  // console.log(consecutivesOnes)
+  return Math.max(...consecutivesOnes)                // < returns the maximum number within the array (Math.max).  
 }
 
+
 console.log(findMaxConsecutiveOnes())
+
+// This works when there is one only one 0. However it doesn't keep track of the highest when there is multiple 0s
+// So we have to have another variable that has the highest amount of consecutive ones. 
+// This shoud be done before we clear the array. 
