@@ -3,7 +3,7 @@
 // Return the running sum of nums.
 
 
-const nums = [1,2,3,4] 
+// const nums = [1,2,3,4] 
 // [3,1,2,10,1]
 
 const runningSum = function(nums) {
@@ -244,4 +244,25 @@ const lettersWithin = () => {
   // substring is inclusive + exclusive, meaning it returns the first number's value and ends at the second number given but doesn't return the value corresponding with the second number. 
 
 lettersWithin()
-// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 7. LEETCODE #383. Ransom Note ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 7. LEETCODE Max Consecutive Ones ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// Given a binary array nums, return the maximum number of consecutive 1's in the array.
+// Input: nums = [1,1,0,1,1,1]
+// Output: 3
+// Explanation: The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3.
+
+const onesAndZeros = [1,1,0,1,1,1];
+
+const findMaxConsecutiveOnes = (num) => {
+  let consecutiveOnes = [] // < Storing the 1s
+
+  for(let i = 0; i < nums.length; i++) { // < Loop though the array
+    if (nums[i] === 1){ // < checks if it's a 1.
+      consecutiveOnes.push(nums[i]);  // < if 1, push into the storing array
+    } else if(nums[i] === 0) { // < checks if its not 1 or that its 0
+      consecutiveOnes = [] // < if it's 0, reset the storing array
+    }
+  }
+  return consecutiveOnes.length
+}
+
+console.log(findMaxConsecutiveOnes())
