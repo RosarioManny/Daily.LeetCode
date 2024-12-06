@@ -244,3 +244,4 @@ const lettersWithin = () => {
   // substring is inclusive + exclusive, meaning it returns the first number's value and ends at the second number given but doesn't return the value corresponding with the second number. 
 
 lettersWithin()
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 7. LEETCODE #383. Ransom Note ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
