@@ -250,7 +250,7 @@ lettersWithin()
 // Output: 3
 // Explanation: The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3.
 
-const nums = [1,1,0,1,1,1];
+// const nums = [1,1,0,1,1,1];
 // const nums = [1,0,1,1,0,1];
 
 const findMaxConsecutiveOnes = (num) => {
@@ -284,7 +284,7 @@ console.log(findMaxConsecutiveOnes())
 // Scrapped the array idea and found out I can just use counters. 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 7. LEETCODE Find Numbers with Even Number of Digits ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // Given an array nums of integers, return how many of them contain an even number of digits.
-// Input: nums = [12,345,2,6,7896]
+Input: nums = [12,345,2,6,7896]
 // Output: 2
 // Explanation: 
 // 12 contains 2 digits (even number of digits). 
@@ -293,3 +293,14 @@ console.log(findMaxConsecutiveOnes())
 // 6 contains 1 digit (odd number of digits). 
 // 7896 contains 4 digits (even number of digits). 
 // Therefore only 12 and 7896 contain an even number of digits.
+
+
+const evenDigits = () => {
+
+  for (let i = 0; i < n)
+}
+// We want to loop through the array.
+// Look at a specific element.
+// Then look at how many characters are there. 
+// Assigned that number to a variable. 
+// Check if that number is divisible by two. If so, then return a string with that number. 
