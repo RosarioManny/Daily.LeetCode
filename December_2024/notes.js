@@ -243,7 +243,7 @@ const lettersWithin = () => {
 // We then set magazine to a new string where substring takes the range of (0, matchingIndex value) and adds the (matchingIndex value + 1). 
   // substring is inclusive + exclusive, meaning it returns the first number's value and ends at the second number given but doesn't return the value corresponding with the second number. 
 
-lettersWithin()
+// lettersWithin() 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 7. LEETCODE Max Consecutive Ones ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // Given a binary array nums, return the maximum number of consecutive 1's in the array.
 // Input: nums = [1,1,0,1,1,1]
@@ -270,7 +270,7 @@ const findMaxConsecutiveOnes = (num) => {
 }
 
 
-console.log(findMaxConsecutiveOnes())
+// console.log(findMaxConsecutiveOnes())
 
 // This works when there is one only one 0. However it doesn't keep track of the highest when there is multiple 0s
 // So we have to have another variable that has the highest amount of consecutive ones. 
@@ -284,7 +284,7 @@ console.log(findMaxConsecutiveOnes())
 // Scrapped the array idea and found out I can just use counters. 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 7. LEETCODE Find Numbers with Even Number of Digits ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // Given an array nums of integers, return how many of them contain an even number of digits.
-Input: nums = [12,345,2,6,7896]
+// Input: nums = [12,345,2,6,7896]
 // Output: 2
 // Explanation: 
 // 12 contains 2 digits (even number of digits). 
@@ -293,12 +293,21 @@ Input: nums = [12,345,2,6,7896]
 // 6 contains 1 digit (odd number of digits). 
 // 7896 contains 4 digits (even number of digits). 
 // Therefore only 12 and 7896 contain an even number of digits.
-
+const nums = [12,345,2,6,7896]
 
 const evenDigits = () => {
-
-  for (let i = 0; i < n)
+  let digits = "";
+  let evenNums = 0
+  for (let i = 0; i < nums.length; i++) {
+    digits = `${nums[i]}` 
+    if (digits.length % 2 === 0){
+      evenNums++
+    }
+  }
+  return evenNums
 }
+
+console.log(evenDigits())
 // We want to loop through the array.
 // Look at a specific element.
 // Then look at how many characters are there. 
