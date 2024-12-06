@@ -275,3 +275,8 @@ console.log(findMaxConsecutiveOnes())
 // This works when there is one only one 0. However it doesn't keep track of the highest when there is multiple 0s
 // So we have to have another variable that has the highest amount of consecutive ones. 
 // This shoud be done before we clear the array. 
+
+// So I tried "onsecutivesOnes.push(onesArray.length)" in 0 which makes sense. However, the issue arises when we never hit zero again. 
+// The array will never push the amount of the most recent series of consecutive ones, if the ones were infinite or it just ends on 1. 
+// So we can put it in the check for one but it saves unneccessary information.
+// Storing the length everytime a 1 is saved instead of just when it reaches its max.
