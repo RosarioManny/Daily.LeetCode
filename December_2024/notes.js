@@ -254,19 +254,19 @@ const nums = [1,1,0,1,1,1];
 // const nums = [1,0,1,1,0,1];
 
 const findMaxConsecutiveOnes = (num) => {
-  let onesArray = [] // < Storing the 1s
-  let consecutivesOnes = [] // < Stores the streak of 1s before it breaks. 
+  let maxOnes = 0; 
+  let currentOnes = 0;
 
-  for(let i = 0; i < nums.length; i++) {              // < Loop though the array
+  for(let i = 0; i < nums.length; i++) {              // < Loop though the array (nums)
     if (nums[i] === 1){                               // < checks if it's a 1.
-      onesArray.push(nums[i]);                        // < if 1, push into the storing array
-      consecutivesOnes.push(onesArray.length)         // < storing the 1s before resetting the consecutive ones 
+      currentOnes++                                   // < If 1, counter goes up
+      maxOnes = Math.max(maxOnes, currentOnes);       // < set MaxOnes to the maximum based on the maxOnes and currentOnes.
     } else if(nums[i] === 0) {                        // < checks if its not 1 or that its 0
-      onesArray = []                                  // < if it's 0, reset the storing array
+      currentOnes = 0                                 // < reset currentOnes if it hits a 0
     }
   }
-  // console.log(consecutivesOnes)
-  return Math.max(...consecutivesOnes)                // < returns the maximum number within the array (Math.max).  
+
+  return maxOnes              // < returns the maximum number within the array (Math.max).  
 }
 
 
@@ -280,3 +280,5 @@ console.log(findMaxConsecutiveOnes())
 // The array will never push the amount of the most recent series of consecutive ones, if the ones were infinite or it just ends on 1. 
 // So we can put it in the check for one but it saves unneccessary information.
 // Storing the length everytime a 1 is saved instead of just when it reaches its max.
+
+// Scrapped the array idea and found out I can just use counters. 
