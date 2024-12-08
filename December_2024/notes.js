@@ -324,7 +324,7 @@ const evenDigits = () => {
 // Explanation: After squaring, the array becomes [16,1,0,9,100].
 // After sorting, it becomes [0,1,9,16,100].
 
-const nums = [-4,-1,0,3,10]
+// const nums = [-4,-1,0,3,10]
 
 function sortArray() {
   const ascendingArr = [];
@@ -345,3 +345,18 @@ console.log(sortArray())
 // 2. Square the number at i by multiplying i * i
 // 3. Return that array and store to a new variable
 // 4. Re-order that new variable from least to greatest. Maybe a nums[i].next
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 10. LEETCODE Duplicate Zeros ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// Given a fixed-length integer array arr, duplicate each occurrence of zero, shifting the remaining elements to the right.
+
+// Input: arr = [1,0,2,3,0,4,5,0]
+// Output: [1,0,0,2,3,0,0,4]
+// Explanation: After calling your function, the input array is modified to: [1,0,0,2,3,0,0,4]
+
+
+const arr = [1,0,2,3,0,4,5,0];
+
+function duplicateZero() {
+
+}
+
+// Psuedo-Code 
