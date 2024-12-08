@@ -338,7 +338,7 @@ function sortArray() {
   return ascendingArr
 }
 
-console.log(sortArray())
+// console.log(sortArray())
 
 // Psuedo-Code 
 // 1. Loop through the Array
@@ -348,15 +348,34 @@ console.log(sortArray())
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 10. LEETCODE Duplicate Zeros ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // Given a fixed-length integer array arr, duplicate each occurrence of zero, shifting the remaining elements to the right.
 
-// Input: arr = [1,0,2,3,0,4,5,0]
-// Output: [1,0,0,2,3,0,0,4]
+// Input: arr = [1,0,2,3,0,4,5, 0] // Length 8
+// Output: [1,0,0,2,3,0,0,4] // Length 8
 // Explanation: After calling your function, the input array is modified to: [1,0,0,2,3,0,0,4]
+// Test Size to see if pop() works other array sizes 
+
+const arr = [ 0, 2, 8, 9]; // Length 4
+// && 
+// const arr = [1,2,3,0,9,2,3,7,1,4,0,5,3,0,2,0,6]; // Lenght 17
 
 
-const arr = [1,0,2,3,0,4,5,0];
+// const arr = [1,0,2,3,0,4,5,0];
 
 function duplicateZero() {
 
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 0) {
+      arr.splice(i, 0, 0)
+        i++
+        arr.pop()
+      }
+    }
+    return arr
 }
 
+console.log(duplicateZero())
+
 // Psuedo-Code 
+// 1. Set array length to a fixed length
+// 2. Loop through the Array
+// 3. Find if [i] = 0
+// 4. If [i] = 0 splice in at that index and add zero
