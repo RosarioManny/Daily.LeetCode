@@ -327,8 +327,17 @@ const evenDigits = () => {
 const nums = [-4,-1,0,3,10]
 
 function sortArray() {
-  return nums
+  const ascendingArr = [];
+
+  for (let i = 0; i < nums.length; i++) {
+    ascendingArr.push(nums[i] * nums[i])
+  }
+
+  ascendingArr.sort((a, b) => a - b)
+  // console.log(ascendingArr)
+  return ascendingArr
 }
+
 console.log(sortArray())
 
 // Psuedo-Code 
