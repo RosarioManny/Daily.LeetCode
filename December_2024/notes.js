@@ -270,7 +270,6 @@ const findMaxConsecutiveOnes = (num) => {
 }
 
 
-// console.log(findMaxConsecutiveOnes())
 
 // This works when there is one only one 0. However it doesn't keep track of the highest when there is multiple 0s
 // So we have to have another variable that has the highest amount of consecutive ones. 
@@ -282,6 +281,9 @@ const findMaxConsecutiveOnes = (num) => {
 // Storing the length everytime a 1 is saved instead of just when it reaches its max.
 
 // Scrapped the array idea and found out I can just use counters. 
+
+
+// console.log(findMaxConsecutiveOnes())
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 8. LEETCODE Find Numbers with Even Number of Digits ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // Given an array nums of integers, return how many of them contain an even number of digits.
 // Input: nums = [12,345,2,6,7896]
@@ -293,7 +295,7 @@ const findMaxConsecutiveOnes = (num) => {
 // 6 contains 1 digit (odd number of digits). 
 // 7896 contains 4 digits (even number of digits). 
 // Therefore only 12 and 7896 contain an even number of digits.
-const nums = [12,345,2,6,7896]
+// const nums = [12,345,2,6,7896]
 
 const evenDigits = () => {
   let digits = "";
@@ -307,7 +309,7 @@ const evenDigits = () => {
   return evenNums
 }
 
-console.log(evenDigits())
+// console.log(evenDigits())
 // We want to loop through the array.
 // Look at a specific element.
 // Then look at how many characters are there. 
@@ -321,3 +323,16 @@ console.log(evenDigits())
 // Output: [0,1,9,16,100]
 // Explanation: After squaring, the array becomes [16,1,0,9,100].
 // After sorting, it becomes [0,1,9,16,100].
+
+const nums = [-4,-1,0,3,10]
+
+function sortArray() {
+  return nums
+}
+console.log(sortArray())
+
+// Psuedo-Code 
+// 1. Loop through the Array
+// 2. Square the number at i by multiplying i * i
+// 3. Return that array and store to a new variable
+// 4. Re-order that new variable from least to greatest. Maybe a nums[i].next
