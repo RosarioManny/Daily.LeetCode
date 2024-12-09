@@ -405,7 +405,7 @@ function mergeArray() {
   };
 
   nums1.length = m + n;
-  console.log(nums1)
+  // console.log(nums1)
 
   let indexOfNums2 = 0;
   for(let i = 0; i < nums1.length; i++) {
@@ -425,8 +425,10 @@ console.log(mergeArray())
 // Psuedo-Code
 // 1. Set the length of nums1 to be "m" and the length of nums2 to "n"
 // 2. For nums1 push 0 in "n" times. 
-// 3. set nums1 length to be fixed to "m + n"
+// 3. Set nums1 length to be fixed to "m + n"
 // 4. Create a counter, to keep track of nums2 index
-// 5. loop through nums1 and check if the nums1[i] = 0. If so push the nums2[counter], starting at 0. Then increase that counter. 
-// 6. return nums1
+// 5. Loop through nums1 and begin spliced once above 'm' since we only want to check the elements that were added 'n' times.
+// 6. Loop through nums1 and check if the nums1[i] = 0. If so push the nums2[counter], starting at 0. Then increase that counter. 
+// 7. Sort nums1 array to non-descending(ascending) order.
+// 8. Return nums1
 
