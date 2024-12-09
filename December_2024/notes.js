@@ -392,16 +392,23 @@ function duplicateZero() {
 // Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
 // The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
 
-const nums1 = [1, 2, 3, 4, 5, 6, 7];
-const nums2 = [9, 8];
-const m = 2; // nums1
-const n = 1; // nums2 
+var nums1 = [2, 1, 5, 3, 4, 6, 7];
+const nums2 = [7, 2, 6, 8];
+const m = 3; // nums1
+const n = 3; // nums2 
 
 function mergeArray(arr) {
- 
+  let addedArrays = [];
+  nums1.length = m;
+  nums2.length = n;
+    addedArrays = nums1.concat(nums2);
+      addedArrays.sort((a, b) => a - b)
+
+  nums1 = addedArrays
+  return nums1
 }
 
-mergeArray()
+console.log(mergeArray())
 // Psuedo-Code
 // 1. Set nums 1 and 2 to their respective lengths of 'm' and 'n'
 // 2. Merge nums 1 and 2 into a variable (mergedNums?)
