@@ -392,25 +392,41 @@ function duplicateZero() {
 // Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
 // The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
 
-var nums1 = [2, 1, 5, 3, 4, 6, 7];
-const nums2 = [7, 2, 6, 8];
+var nums1 = [2, 1, 5];
+const nums2 = [7, 2, 6 ];
 const m = 3; // nums1
 const n = 3; // nums2 
 
-function mergeArray(arr) {
-  let addedArrays = [];
+function mergeArray() {
   nums1.length = m;
   nums2.length = n;
-    addedArrays = nums1.concat(nums2);
-      addedArrays.sort((a, b) => a - b)
+  for(let i = 0; i < n; i++){
+    nums1.push(0)
+  };
 
-  nums1 = addedArrays
+  nums1.length = m + n;
+  console.log(nums1)
+
+  let indexOfNums2 = 0;
+  for(let i = 0; i < nums1.length; i++) {
+    if (i >= m) {
+      if(nums1[i] === 0) {
+        nums1.splice(i, 1, nums2[indexOfNums2]);
+        indexOfNums2++
+      };
+    }
+  };
+
+  nums1.sort((a, b) => a - b)
   return nums1
 }
 
 console.log(mergeArray())
 // Psuedo-Code
-// 1. Set nums 1 and 2 to their respective lengths of 'm' and 'n'
-// 2. Merge nums 1 and 2 into a variable (mergedNums?)
-// 3. Sort that new array in ascending order
-// 4. Set nums1 to that new array with the new combined length of 'm + n'
+// 1. Set the length of nums1 to be "m" and the length of nums2 to "n"
+// 2. For nums1 push 0 in "n" times. 
+// 3. set nums1 length to be fixed to "m + n"
+// 4. Create a counter, to keep track of nums2 index
+// 5. loop through nums1 and check if the nums1[i] = 0. If so push the nums2[counter], starting at 0. Then increase that counter. 
+// 6. return nums1
+
