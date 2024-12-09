@@ -414,7 +414,7 @@ function mergeArray() {
         nums1.splice(i, 1, nums2[indexOfNums2]);
         indexOfNums2++
       };
-    }
+    };
   };
 
   nums1.sort((a, b) => a - b)
