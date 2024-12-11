@@ -421,7 +421,7 @@ function mergeArray() {
   return nums1
 }
 
-console.log(mergeArray())
+// console.log(mergeArray())
 // Psuedo-Code
 // 1. Set the length of nums1 to be "m" and the length of nums2 to "n"
 // 2. For nums1 push 0 in "n" times. 
@@ -441,5 +441,28 @@ console.log(mergeArray())
 // Output: 5
 // Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
 // Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+//                 j i
+const prices = [7,1,5,3,6,4]
 
+const maxProfit = function(prices) {
+  let profit = 0;
+  let j = 0;
+
+  for(let i = 1; i < prices.length; i++){
+    let currentProfit = 0;
+    if (prices[i] < prices[j]) { // < We are checking the elements and seeing if [i] is greater than element at [j]. 
+      j = i // < if [i] is less than [j] increment by 1 
+    } else {
+      currentProfit = prices[i] - prices[j] // < else if [i] is greater than [j] than substract and get the profit$
+    }
+    profit = Math.max(profit, currentProfit)
+  }
+  return profit
+};
+
+console.log(maxProfit(prices))
 //Psuedo-Code
+// 1. Loop through the array
+// 2. Compare position at [i] to the next position [i] + 1. 
+// 3. Store that value to a variable
+// 4. Repeat and use Math.max(storedVariable, currentValue)
