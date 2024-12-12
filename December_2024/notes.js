@@ -353,7 +353,7 @@ function sortArray() {
 // Explanation: After calling your function, the input array is modified to: [1,0,0,2,3,0,0,4]
 // Test Size to see if pop() works other array sizes 
 
-const arr = [ 0, 2, 8, 9]; // Length 4
+// const arr = [ 0, 2, 8, 9]; // Length 4
 // && 
 // const arr = [1,2,3,0,9,2,3,7,1,4,0,5,3,0,2,0,6]; // Lenght 17
 
@@ -392,10 +392,10 @@ function duplicateZero() {
 // Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
 // The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
 
-var nums1 = [2, 1, 5];
-const nums2 = [7, 2, 6 ];
-const m = 3; // nums1
-const n = 3; // nums2 
+// var nums1 = [2, 1, 5];
+// const nums2 = [7, 2, 6 ];
+// const m = 3; // nums1
+// const n = 3; // nums2 
 
 function mergeArray() {
   nums1.length = m;
@@ -460,7 +460,7 @@ const maxProfit = function(prices) {
   return profit
 };
 
-console.log(maxProfit(prices))
+// console.log(maxProfit(prices))
 //Psuedo-Code
 // 1. Loop through the array
 // 2. Compare position at [i] to the next position [i] + 1. 
@@ -478,8 +478,8 @@ console.log(maxProfit(prices))
 // Explanation: Your function should return k = 2, with the first two elements of nums being 2.
 // It does not matter what you leave beyond the returned k (hence they are underscores).
 
-const nums = [3,2,2,3, 5, 3, 4];
-const val = 3;
+// const nums = [3,2,2,3, 5, 3, 4];
+// const val = 3;
 
 const removeElement = function(nums, val) {
   let k = 0;
@@ -493,8 +493,8 @@ const removeElement = function(nums, val) {
   console.log(nums)
 };
 
-removeElement(nums, val)
-// console.log(removeElement(nums, val))
+// removeElement(nums, val)
+
 // Psuedo Code
 // 1. Loop throughtthe array and check for  all instances of val within nums
 // 2. If a value in nums[i] = val, set to nums[i].splice(i, 1, "_"). 
@@ -514,7 +514,32 @@ removeElement(nums, val)
 // Output: 2, nums = [1,2,_]
 // Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
 // It does not matter what you leave beyond the returned k (hence they are underscores).
+const nums = [0,0,1,1,1,2,2,3,3,4];
 
 const removeDuplicates = function(nums) {
-    
+    let k = 0;
+    let u = 0; // < Variable we are currently checking for
+    for ( let i = 1; i < nums.length; i++) {
+      console.log("Before", nums)
+      if(nums[u] === nums[i]){
+        // nums[i - 1] = nums[i]
+        nums.splice(i, 1)
+        i-- 
+        // ^^ This is done because when we splice the array and the length changes yet [i] is still at the same position. 
+        // The other elements now have their idx changed. So [i] now = 2 instead of remaining in the same spot to check the rest. 
+      } else {
+        u++
+
+      }
+      console.log("Unique:", u)
+    }
+    console.log("End:",nums)
 };
+
+removeDuplicates(nums)
+// Psuedo-Code
+// 1. Loop through the Array starting at 1
+// 2. Every time we run into a unique number nums[i], store into a variable. 
+//  2a. Note, we are starting at 1 because we always know that the first element is always unique. 
+// 3. Then check if they nums[i] = nums[variable]
+// 4. If it does, then delete that num
