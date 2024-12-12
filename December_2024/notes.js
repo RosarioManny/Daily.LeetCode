@@ -466,3 +466,38 @@ console.log(maxProfit(prices))
 // 2. Compare position at [i] to the next position [i] + 1. 
 // 3. Store that value to a variable
 // 4. Repeat and use Math.max(storedVariable, currentValue)
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 13. LEETCODE Remove Element ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. 
+// The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
+
+// Consider the number of elements in nums which are not equal to val be k, to get accepted, you need to do the following things:
+// Change the array nums such that the first k elements of nums contain the elements which are not equal to val. The remaining elements of nums are not important as well as the size of nums.
+// Return k.
+// Input: nums = [3,2,2,3], val = 3
+// Output: 2, nums = [2,2,_,_]
+// Explanation: Your function should return k = 2, with the first two elements of nums being 2.
+// It does not matter what you leave beyond the returned k (hence they are underscores).
+
+const nums = [3,2,2,3, 5, 3, 4];
+const val = 3;
+
+const removeElement = function(nums, val) {
+  let k = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== val ) {
+      nums[k] = nums[i]
+      k++
+      // console.log("Nums:", nums)
+    };
+  }
+  console.log(nums)
+};
+
+removeElement(nums, val)
+// console.log(removeElement(nums, val))
+// Psuedo Code
+// 1. Loop throughtthe array and check for  all instances of val within nums
+// 2. If a value in nums[i] = val, set to nums[i].splice(i, 1, "_"). 
+// 3. Make a count of how many times this happens. 
+// 4. Then check the length of the array 
+// 5. return the length of the array and subtract that count from that and the new array with "_"
