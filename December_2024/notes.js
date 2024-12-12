@@ -514,10 +514,10 @@ const removeElement = function(nums, val) {
 // Output: 2, nums = [1,2,_]
 // Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
 // It does not matter what you leave beyond the returned k (hence they are underscores).
-const nums = [0,0,1,1,1,2,2,3,3,4];
+const nums = [1,1,1,2,2,3,2,3,];
 
 const removeDuplicates = function(nums) {
-    let k = 0;
+    let k = nums.length;
     let u = 0; // < Variable we are currently checking for
     for ( let i = 1; i < nums.length; i++) {
       console.log("Before", nums)
@@ -529,14 +529,27 @@ const removeDuplicates = function(nums) {
         // The other elements now have their idx changed. So [i] now = 2 instead of remaining in the same spot to check the rest. 
       } else {
         u++
-
       }
       console.log("Unique:", u)
     }
-    console.log("End:",nums)
+  return (k, nums)
 };
 
-removeDuplicates(nums)
+// ALTERNATIVE CODE:
+// const removeDuplicates = function(nums) {
+  // if (nums.length === 0) return 0;  // Edge case: empty array
+  
+  // let k = 1;  // Start at 1 because the first element is always unique
+  // for (let i = 1; i < nums.length; i++) {
+  //     if (nums[i] !== nums[i - 1]) {
+  //         nums[k] = nums[i];  // Place the next unique element in position k
+  //         k++;
+  //     }
+  // }
+  // return k;  // k is the number of unique elements
+// };
+
+console.log(removeDuplicates(nums))
 // Psuedo-Code
 // 1. Loop through the Array starting at 1
 // 2. Every time we run into a unique number nums[i], store into a variable. 
