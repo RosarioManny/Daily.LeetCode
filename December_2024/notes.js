@@ -40,7 +40,7 @@ const runningSum = function(nums) {
 // A customer's wealth is the amount of money they have in all their bank accounts. The richest customer is the customer that has the maximum wealth.
 
 // We want to look at each [ARRAY] within the [ARRAY] and add all the nmbers. We can set the new found total to a variable. We can then compare each variable to see who is the highest.
-let accounts = [[2,8,7],[7,1,3],[1,9,5]]
+// let accounts = [[2,8,7],[7,1,3],[1,9,5]]
 //      | bank1 | bank2 | bank3 | < < Visualize 
 // cust1|___2___|___8___|___7___| i[0] < One customer and the amount of money in each of their banks
 // cust2|___7___|___1___|___3___| i[1]
@@ -442,7 +442,7 @@ function mergeArray() {
 // Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
 // Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
 //                 j i
-const prices = [7,1,5,3,6,4]
+// const prices = [7,1,5,3,6,4]
 
 const maxProfit = function(prices) {
   let profit = 0;
@@ -514,7 +514,7 @@ const removeElement = function(nums, val) {
 // Output: 2, nums = [1,2,_]
 // Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
 // It does not matter what you leave beyond the returned k (hence they are underscores).
-const nums = [1,1,1,2,2,3,2,3,];
+// const nums = [1,1,1,2,2,3,2,3,];
 
 const removeDuplicates = function(nums) {
     let k = nums.length;
@@ -523,7 +523,7 @@ const removeDuplicates = function(nums) {
       console.log("Before", nums)
       if(nums[u] === nums[i]){
         // nums[i - 1] = nums[i]
-        nums.splice(i, 1)
+        nums.splice(i, 1) 
         i-- 
         // ^^ This is done because when we splice the array and the length changes yet [i] is still at the same position. 
         // The other elements now have their idx changed. So [i] now = 2 instead of remaining in the same spot to check the rest. 
@@ -549,10 +549,40 @@ const removeDuplicates = function(nums) {
   // return k;  // k is the number of unique elements
 // };
 
-console.log(removeDuplicates(nums))
+// console.log(removeDuplicates(nums)no)
 // Psuedo-Code
 // 1. Loop through the Array starting at 1
 // 2. Every time we run into a unique number nums[i], store into a variable. 
 //  2a. Note, we are starting at 1 because we always know that the first element is always unique. 
 // 3. Then check if they nums[i] = nums[variable]
 // 4. If it does, then delete that num
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 15. LEETCODE Remove Duplicates from Sorted Array ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// Given an array arr of integers, check if there exist two indices i and j such that :
+
+// i != j
+// 0 <= i, j < arr.length
+// arr[i] == 2 * arr[j]
+// Input: arr = [10,2,5,3]
+// Output: true
+// Explanation: For i = 0 and j = 2, arr[i] == 10 == 2 * 5 == 2 * arr[j]
+
+const arr = [10,2,5,3]
+
+
+const checkIfExist = function(arr) {
+  let j = 1;
+  for (let i = 0; i <= arr.length; i++){
+    console.log(arr[i])
+    if(arr[i] !== arr[j] * 2) {
+      j++
+    } else {
+      return true
+    }
+  }
+};
+console.log(checkIfExist(arr))
+// Psuedo-Code:
+// 1. Loop through the array
+// 2. Initialize j = 1. (We start at 1 because we start at 0 for i.Which means if j was also 0, it will always be true. )
+// 3. Check if arr[i] = arr[j] * 2 and return true if it does. 
+// 4. Else increment j by 1
