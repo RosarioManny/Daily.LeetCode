@@ -556,7 +556,7 @@ const removeDuplicates = function(nums) {
 //  2a. Note, we are starting at 1 because we always know that the first element is always unique. 
 // 3. Then check if they nums[i] = nums[variable]
 // 4. If it does, then delete that num
-// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 15. LEETCODE Remove Duplicates from Sorted Array ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 15. LEETCODE Check If N and Its Double Exist^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // Given an array arr of integers, check if there exist two indices i and j such that :
 
 // i != j
@@ -566,23 +566,72 @@ const removeDuplicates = function(nums) {
 // Output: true
 // Explanation: For i = 0 and j = 2, arr[i] == 10 == 2 * 5 == 2 * arr[j]
 
-const arr = [10,2,5,3]
+// const arr = [10,2,5,3]
 
 
 const checkIfExist = function(arr) {
   let j = 1;
-  for (let i = 0; i <= arr.length; i++){
-    console.log(arr[i])
-    if(arr[i] !== arr[j] * 2) {
-      j++
-    } else {
-      return true
+
+  for (let i = 0; i < arr.length; i++){
+    for (let j = 1; j < arr.length; j++) {
+      if (i !== j && arr[i] == arr[j] * 2) {
+        return true
+      }
     }
   }
+  return false
 };
-console.log(checkIfExist(arr))
+// console.log(checkIfExist(arr))
 // Psuedo-Code:
 // 1. Loop through the array
-// 2. Initialize j = 1. (We start at 1 because we start at 0 for i.Which means if j was also 0, it will always be true. )
+// 2. Initialize j = 1. (We start at 1 because we start at 0 for i.Which means if j was also 0, it may also be true as well as we don't want to look at the same index )
 // 3. Check if arr[i] = arr[j] * 2 and return true if it does. 
 // 4. Else increment j by 1
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 16. LEETCODE Valid Mountain Array ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// Given an array of integers arr, return true if and only if it is a valid mountain array.
+// Recall that arr is a mountain array if and only if:
+
+// arr.length >= 3
+// There exists some i with 0 < i < arr.length - 1 such that:
+// arr[0] < arr[1] < ... < arr[i - 1] < arr[i]
+// arr[i] > arr[i + 1] > ... > arr[arr.length - 1]
+// Input: arr = [2,1]
+// Output: false
+const arr = [1, 4, 6, 9, 4, 2, 1];
+
+const validMountainArray = function(arr) {
+  if (arr.length < 3) {
+    return false;  // A valid mountain array must have at least 3 elements
+  }
+
+  let i = 0;
+
+  // Uphill: Traverse while arr[i] < arr[i + 1]
+  for (i = 0; i < arr.length - 1 && arr[i] < arr[i + 1]; i++) {
+    console.log("Up", arr[i], ">>", arr[i + 1]);
+  }
+
+  // Check if peak is at the start or the end
+  if (i === 0 || i === arr.length - 1) {
+    console.log("Peak is at the start or end:", arr[i]);
+    return false;  // The peak can't be at the start or the end
+  }
+
+  // Downhill: Traverse while arr[i] > arr[i + 1]
+  for (; i < arr.length - 1 && arr[i] > arr[i + 1]; i++) {
+    console.log("Down", arr[i], ">>", arr[i + 1]);
+  }
+
+  // If we reached the end, it's a valid mountain array
+  return i === arr.length - 1;
+};
+
+
+
+console.log(validMountainArray(arr))
+// Psuedo-Code:
+// 1. Check if arr.length < 3 return false
+// 2. If bigger than the 3, begin loop
+// 3. If arr[i] < arr[i + 1] continue loop.
+// 4. At first instance of decrease, switch to arr[i] > arr[i+1]
+// 5. return true if ends else false if arr[i] is not less than. 
