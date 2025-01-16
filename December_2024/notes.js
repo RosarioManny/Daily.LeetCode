@@ -623,7 +623,7 @@ const validMountainArray = function(arr) {
   }
 
   // If we reached the end, it's a valid mountain array
-  return i === arr.length - 1;
+  return i === arr.length - 1; // < this returns true. 
 };
 
 
