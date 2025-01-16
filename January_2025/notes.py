@@ -25,7 +25,7 @@ def greatest_right_element(arr):
   return arr
 
 
-print(greatest_right_element())
+# print(greatest_right_element())
 
 # PsuedoCode
 # Iterate over the array
@@ -45,33 +45,43 @@ print(greatest_right_element())
 # Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
 # It does not matter what you leave beyond the returned k (hence they are underscores).
 
-def removeDuplicates(nums):
-    k = nums.length
-    u = 0
-    for i in range(k, 0)
-
-
-
-
-
-
-
-
-
-
-    let k = nums.length;
-    let u = 0; // < Variable we are currently checking for
-    for ( let i = 1; i < nums.length; i++) {
-      console.log("Before", nums)
-      if(nums[u] === nums[i]){
-        // nums[i - 1] = nums[i]
-        nums.splice(i, 1) 
-        i-- 
-        // ^^ This is done because when we splice the array and the length changes yet [i] is still at the same position. 
-        // The other elements now have their idx changed. So [i] now = 2 instead of remaining in the same spot to check the rest. 
-      } else {
-        u++
-      }
-      console.log("Unique:", u)
+def remove_duplicates(nums):
+    k = len(nums)
+    u = 0  # Variable we are currently checking for
+    i = 1
+    while i < len(nums):
+        print("Before", nums)
+        if nums[u] == nums[i]:
+            nums.pop(i)
+            i -= 1  # Decrease i to adjust for changed length
+        else:
+            u += 1
+        i += 1  # Move to the next element
+        print("Unique:", u)
     
-  return (k, nums)
+    return k, nums
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 3. LEETCODE Move Zeroes ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+# Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+# Note that you must do this in-place without making a copy of the array.
+
+# Input: nums = [0,1,0,3,12]
+# Output: [1,3,12,0,0]
+
+nums = [0,1,0,3,12]
+# nums = [0,1,0]
+
+def move_zeroes(nums):
+  length = len(nums)
+  non_zero = 0
+
+  for i in range(length):
+    if(nums[i] != 0 ):
+      nums[non_zero] = nums[i]
+      non_zero += 1
+
+  for i in range(non_zero, length):
+    nums[i] = 0
+
+  print(nums)
+
+move_zeroes(nums)
