@@ -67,21 +67,61 @@ def remove_duplicates(nums):
 # Input: nums = [0,1,0,3,12]
 # Output: [1,3,12,0,0]
 
-nums = [0,1,0,3,12]
+# nums = [0,1,0,3,12]
 # nums = [0,1,0]
 
 def move_zeroes(nums):
-  length = len(nums)
-  non_zero = 0
+  length = len(nums) 
+  non_zero = 0 # Pointer at the beginning of the array to place non-zero numbers.
 
   for i in range(length):
-    if(nums[i] != 0 ):
-      nums[non_zero] = nums[i]
-      non_zero += 1
+    if(nums[i] != 0 ): # if it's any number besides zero
+      nums[non_zero] = nums[i] # Place that non-zero number at beginning
+      non_zero += 1 # increment pointer for next spot for potential non-zero
 
-  for i in range(non_zero, length):
-    nums[i] = 0
+  for i in range(non_zero, length): # begin at last non-zero spot; add zeros until the end of array length.
+    nums[i] = 0 
 
   print(nums)
 
-move_zeroes(nums)
+# move_zeroes(nums)
+
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 4. LEETCODE Sort Array By Parity ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+# Given an integer array nums, move all the even integers at the beginning of the array followed by all the odd integers.
+# Return any array that satisfies this condition.
+
+# Input: nums = [3,1,2,4]
+# Output: [2,4,3,1]
+# Explanation: The outputs [4,2,3,1], [2,4,1,3], and [4,2,1,3] would also be accepted.
+
+nums = [3,1,2,4]
+
+def sort_by_parity():
+  l = 0
+
+  for r in range(len(nums)):
+    if nums[r] % 2 == 0:
+      nums[l], nums[r] = nums[r], nums[l]
+      l += 1
+  return nums
+
+print(sort_by_parity())
+
+# Note: Swapping Elements
+# vv INCORRECT vv
+# nums[left] = nums[right]
+# nums[right] = nums[left]
+
+# vv CORRECT vv
+# nums[left], nums[right] = nums[right], nums[left]
+
+# WHY:
+# The first snippet does not perform a swap; it overwrites both elements with the value of nums[right].
+# In the first line (nums[left] = nums[right]), the value of nums[right] is assigned to nums[left].
+#  After this step, both nums[left] and nums[right] hold the same value (the original value of nums[right]).
+  # In the second line (nums[right] = nums[left]), you're assigning nums[right] the value of nums[left] again, which has already been overwritten in the first step. 
+  # So, this line essentially has no effect, and both nums[left] and nums[right] will now hold the same value.
+
+# The second snippet uses tuple unpacking, which correctly swaps the values of nums[left] and nums[right] in a single step.
+  # Python's tuple unpacking allows you to swap values in a single line. In this expression, nums[right] is evaluated and temporarily stored before nums[left] is assigned to it, and vice versa.
+  # This means the values of nums[left] and nums[right] are swapped without any loss of information or overwriting.
