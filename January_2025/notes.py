@@ -105,7 +105,7 @@ def sort_by_parity():
       l += 1
   return nums
 
-print(sort_by_parity())
+# print(sort_by_parity())
 
 # Note: Swapping Elements
 # vv INCORRECT vv
@@ -125,3 +125,44 @@ print(sort_by_parity())
 # The second snippet uses tuple unpacking, which correctly swaps the values of nums[left] and nums[right] in a single step.
   # Python's tuple unpacking allows you to swap values in a single line. In this expression, nums[right] is evaluated and temporarily stored before nums[left] is assigned to it, and vice versa.
   # This means the values of nums[left] and nums[right] are swapped without any loss of information or overwriting.
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 5. LEETCODE Height Checker ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#   A school is trying to take an annual photo of all the students. The students are asked to stand in a single file line in non-decreasing order by height. Let this ordering be represented by the integer array expected where expected[i] is the expected height of the ith student in line.
+# You are given an integer array heights representing the current order that the students are standing in. Each heights[i] is the height of the ith student in line (0-indexed).
+# Return the number of indices where heights[i] != expected[i]. Match the order of expected (effectively)
+# You are not given the expected array but have to create it yourself. 
+
+# E1
+# Input: heights = [1,1,4,2,1,3]
+# Output: 3
+# Explanation: 
+# heights:  [1,1,4,2,1,3]
+# expected: [1,1,1,2,3,4]
+# Indices 2, 4, and 5 do not match.
+# E2 
+# Input: heights = [5,1,2,3,4]
+# Output: 5
+# Explanation:
+# heights:  [5,1,2,3,4]
+# expected: [1,2,3,4,5]
+# All indices do not match.
+# E3
+# Input: heights = [1,2,3,4,5]
+# Output: 0
+# Explanation:
+# heights:  [1,2,3,4,5]
+# expected: [1,2,3,4,5]
+# All indices match.
+# heights = [1,1,4,2,1,3]
+# expected =[1,1,1,2,3,4]
+heights = [1,2,3,4,5]
+# expected = []
+
+def heighChecker():
+  expected = sorted(heights)
+  counter = 0
+  for i in range(len(expected)):
+    if (heights[i] is not expected[i]):
+      counter += 1
+  return counter
+
+print(heighChecker())
