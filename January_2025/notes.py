@@ -179,14 +179,14 @@ def heighChecker():
 
 # s = "()[]{}" # true
 # s = "(]" # false
-s = "}[" # false
+# s = "}[" # false
 
-stack = []
-map = {
-    '(': ')',
-    '{': '}',
-    '[': ']'
-}
+# stack = []
+# map = {
+#     '(': ')',
+#     '{': '}',
+#     '[': ']'
+# }
 def checkBrackets(brace):
   if len(brace) % 2 != 0:
     return False
@@ -207,46 +207,3 @@ def checkBrackets(brace):
     return False
   
 # print(checkBrackets(s))
-
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 7. LEETCODE #9. Palindrome Number ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-# Given an integer x, return true if x is a palindrome, and false otherwise.
-
-# Input: x = 1234
-# Output: true
-# Explanation: 121 reads as 121 from left to right and from right to left.
-# Input: x = -121
-# Output: false
-# Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
-
-nums = 12321
-
-def isPalindrome(x):
-  # turn into an array/list
-  check = list(str(x))
-
-  # check the last element
-  pointer = -1
-
-  # Singe character is always a palindrome
-  if len(check) == 1:
-    return True
-  
-  # Stop at the middle
-  middle = round(len(check) / 2)
-
-  for i in range(0, middle):
-    # print("I ::",check[i])
-    # print("Pointer ::", check[pointer])
-    if check[i] != check[pointer]:
-      print("Not Palidrome")
-      return False
-    else:
-      pointer -= 1
-  
-  print("Palindrome")
-  return True
-
-isPalindrome(nums)
-
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 8. LEETCODE #9. Palindrome Number ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
