@@ -108,3 +108,63 @@ def roman_to_int(s:str) -> int:
 # roman_to_int(tim)
 
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 3. LEETCODE #14. Longest Common Prefix ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+# Write a function to find the longest common prefix string amongst an array of strings.
+# If there is no common prefix, return an empty string "".
+
+# Example 1:
+# Input: strs = ["flower","flow","flight"]
+# Output: "fl"
+# Example 2:
+# Input: strs = ["dog","racecar","car"]
+# Output: ""
+# Explanation: There is no common prefix among the input strings.
+
+# strs = ["floper","flow","flight"]
+strs = ["ab", "a"]
+# strs = []
+def common_prefix():
+  # If strs is empty
+  if len(strs) == 0:
+    return ""
+  
+  # If only one element in strs
+  if len(strs) == 1:
+    return strs[0]
+
+  # # Sort array from shortest string to longest. 
+  sort_strs = sorted(strs, key=len)
+
+  # Store the first element. Longest commonality is determined by the shortest word.
+  prefix = sort_strs[0]
+
+  # Prefix we are currently using.
+  p = len(prefix)
+  # Word we are at.
+  i = 0
+
+
+  # # Loop through the words.
+  while p > 0:
+    # Check if word starts with the prefix 
+    if i < len(sort_strs) and sort_strs[i].startswith(prefix[0:p]):
+      # Iterate to the next word
+      i += 1
+    else:
+      # Decrement if word doesn't contain prefix
+      p -= 1
+      # Reset and look through all words again
+      i = 1
+    
+    # If i is the length of word_list means we didn't decrement. Which means we went through the list with all matching
+    if i == len(sort_strs):
+      return(prefix[0:p])
+    
+  return ""
+
+print(common_prefix())
+
+# 1. Loop through the all the words 
+  # 1a. Loop through for the letters
+# 2. If first letter is in all words. Add to common
+# 3. As soon as a letter doesn't match, break and return the commons. 
+# 4. If the none of th first letters don't match print ""
