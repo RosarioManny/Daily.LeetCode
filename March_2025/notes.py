@@ -14,35 +14,69 @@
 # Input: list1 = [], list2 = [0]
 # Output: [0]
 
-x = []
-y = [2, 4, 6]
+# NEED TO USE LISTNODE!
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 
-def mergeTwoList(list1, list2):
-  sortedList = []
-  p1, p2 = 0, 0
-  # Loop through the (longest) list
-  while p1 < len(list1) and p2 < len(list2):
-    if list1[p1] < list2[p2]:
-      sortedList.append(list1[p1])
-      p1 += 1
-    else:
-      sortedList.append(list2[p2])
-      p2 += 1
+
+def mergeTwoLists(self, list1, list2):
   
-  # Append remaining elements in list1
-  while p1 < len(list1):
-    sortedList.append(list1[p1])
-    p1 += 1
+  # Create a dummy node to simplify the merging process
+  dummy = ListNode()
+  current = dummy  # Pointer to build the merged list
   
-  # Append remaining elements in list2
-  while p2 < len(list2):
-    sortedList.append(list2[p2])
-    p2 += 1
+  # Traverse both lists and merge them
+  while list1 and list2:
+      if list1.val < list2.val:
+          current.next = list1
+          list1 = list1.next
+      else:
+          current.next = list2
+          list2 = list2.next
+      current = current.next
+  
+  # If one of the lists is not empty, append it to the merged list
+  if list1:
+      current.next = list1
+  else:
+      current.next = list2
+  
+  # Return the head of the merged list (skip the dummy node)
+  return dummy.next
+
+# CODE WORKS BUT NOT USING A LISTNODE AS QUESTION ASKED
+# x = []
+# y = [2, 4, 6]
+
+# def mergeTwoList(list1, list2):
+#   sortedList = []
+#   p1, p2 = 0, 0
+#   # Loop through the (longest) list
+#   while p1 < len(list1) and p2 < len(list2):
+#     if list1[p1] < list2[p2]:
+#       sortedList.append(list1[p1])
+#       p1 += 1
+#     else:
+#       sortedList.append(list2[p2])
+#       p2 += 1
+  
+#   # Append remaining elements in list1
+#   while p1 < len(list1):
+#     sortedList.append(list1[p1])
+#     p1 += 1
+  
+#   # Append remaining elements in list2
+#   while p2 < len(list2):
+#     sortedList.append(list2[p2])
+#     p2 += 1
     
   
-  return sortedList
+#   return sortedList
 
-print("Answer >> ", mergeTwoList(x, y))
+# print("Answer >> ", mergeTwoList(x, y))
 
 # PsuedoCode
 # Create a new list
