@@ -73,8 +73,8 @@ def mergeTwoLists(self, list1, list2):
 # If current element at list 1 is greater than list 2 , append list 2. Increment list 2
 # If currents elements are equal. Append and increment both
 
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 2. NEETCODE > DSA < Contains Duplicate ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 3. NEETCODE > DSA < Is Anagram ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 2. NEETCODE > DSA < Contains Duplicate EASY^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 3. NEETCODE > DSA < Is Anagram EASY^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 # Given two strings s and t, return true if the two strings are anagrams of each other, otherwise return false.
 
 # An anagram is a string that contains the exact same characters as another string, but the order of the characters can be different.
@@ -102,4 +102,31 @@ def isAnagram():
             return False
     return True
 
-print(isAnagram())
+# print(isAnagram())
+
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 4. NEETCODE > DSA < Two Sum EASY ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+# Given an array of integers nums and an integer target, return the indices i and j such that nums[i] + nums[j] == target and i != j.
+# You may assume that every input has exactly one pair of indices i and j that satisfy the condition.
+# Return the answer with the smaller index first.
+# Input: 
+# nums = [3,4,5,6], target = 7
+
+# Output: [0,1]
+
+nums = [3,4,2,6]
+target = 7
+
+def twoSums():
+    index = []
+    for i in range(len(nums)):
+        for j in range(1, len(nums)):
+            if nums[i] + nums[j] == target and i != j:
+                print("J ::", j)
+                print("I ::", i)
+                index.append(i)
+                index.append(j)
+                return(index)
+            else:
+                return False
+
+print(twoSums())
