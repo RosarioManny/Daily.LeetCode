@@ -20,24 +20,24 @@ class ListNode(object):
         self.next = next
 def mergeTwoLists(self, list1, list2):
 # Create a dummy node to simplify the merging process
-dummy = ListNode()
-current = dummy  # Pointer to build the merged list
-# Traverse both lists and merge them
-while list1 and list2:
-    if list1.val < list2.val:
+    dummy = ListNode()
+    current = dummy  # Pointer to build the merged list
+    # Traverse both lists and merge them
+    while list1 and list2:
+        if list1.val < list2.val:
+            current.next = list1
+            list1 = list1.next
+        else:
+            current.next = list2
+            list2 = list2.next
+        current = current.next
+    # If one of the lists is not empty, append it to the merged list
+    if list1:
         current.next = list1
-        list1 = list1.next
     else:
         current.next = list2
-        list2 = list2.next
-    current = current.next
-# If one of the lists is not empty, append it to the merged list
-if list1:
-    current.next = list1
-else:
-    current.next = list2
 # Return the head of the merged list (skip the dummy node)
-return dummy.next
+    return dummy.next
 
 # CODE WORKS BUT NOT USING A LISTNODE AS QUESTION ASKED
 # x = []
@@ -74,3 +74,32 @@ return dummy.next
 # If currents elements are equal. Append and increment both
 
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 2. NEETCODE > DSA < Contains Duplicate ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 3. NEETCODE > DSA < Is Anagram ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+# Given two strings s and t, return true if the two strings are anagrams of each other, otherwise return false.
+
+# An anagram is a string that contains the exact same characters as another string, but the order of the characters can be different.
+
+
+# Input: s = "racecar", t = "carrace"
+
+# Output: true
+
+s = "racecar"
+t = "carrace"
+def isAnagram():
+    i = 0
+    if len(s) != len(t):
+        return False 
+    
+    while i <= len(t) - 1:
+        sort_T = sorted(t)
+        sort_S = sorted(s)
+        print("T", sort_T)
+        print("S", sort_S)
+        if sort_S[i] == sort_T[i]:
+            i += 1
+        else:
+            return False
+    return True
+
+print(isAnagram())
